@@ -4,14 +4,16 @@
   "description": "This repo can be used to run tornado.cash as an onion service. It will auto update the UI when the new version is released.",
   "main": "index.js",
   "scripts": {
+		"directory": "node index.js",
+		"docker:run": "docker run --rm --entrypoint shallot strm/tor-hiddenservice-nginx ^foo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sambacha/tornado-onion.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["tor", "tornado cash", "tor relay", "tor onion", "cryptocurrencies", "ethereum", "blockchains", "layer 2"],
+  "author": "The Contributors",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sambacha/tornado-onion/issues"

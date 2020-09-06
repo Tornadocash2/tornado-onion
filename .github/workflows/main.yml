@@ -1,0 +1,13 @@
+# GitHub Action to Generate Series CI data
+on: ["push", "pull request"]
+
+jobs:
+  echo-input:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/github-script@v2
+        with:
+          script: |
+            . ./bin/series-ci.sh
+            console.log(script({github, context}))
