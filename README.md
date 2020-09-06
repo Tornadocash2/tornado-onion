@@ -1,14 +1,22 @@
 # Tornado Onion service
 
-<img src="https://pbs.twimg.com/profile_banners/1154795176507969543/1576151439/1500x500" width="700" align="right">   
+<img src="https://pbs.twimg.com/profile_banners/1154795176507969543/1576151439/1500x500" width="900" align="center">   
 <br>    
 <br>    
+
+
+[![Build Status](https://travis-ci.com/sambacha/tornado-onion.svg?branch=master)](https://travis-ci.com/sambacha/tornado-onion)
+
+## Overview
+> `tornado.cash` **tor onion** service for rpc - Zero Trust Transaction & History Logging
 
 This repo can be used to run `tornado.cash` as an onion service. It will auto update the UI when the new version is released.
 
-> Additional Options: Deploy Complete TORnado Private Network as a Network Obfuscation Layer
+Deploy Complete TORnado Private Network
+Network Obfuscation Layer
+Transactions at least +3 hops
 
-## Notice
+### Notice
 
 No Security Audit has been performed nor should this be your sole remedy for obfuscation of transactions. **Do not use IPFS with this**.
 
