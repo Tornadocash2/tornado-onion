@@ -1,0 +1,3 @@
+#!/bin/bash
+docker tag tornadotor docker.pkg.github.com/sambacha/tornado-onion/tornadotor:0.1.0
+

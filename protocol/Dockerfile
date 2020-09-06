@@ -1,4 +1,4 @@
-#
+# SPDX-License-Identifier: GPL-2.0
 # Dockerfile for the Private Tor Network 
 #
 # This is a dockerfile to build a Debian host and
@@ -11,7 +11,7 @@
 #   necessary other servers for it to talk to. But if you want o run
 #   manually:
 #   
-#   docker run --rm -it -e ROLE=DA antitree/tor-server /bin/bash
+#   docker run --rm -it -e ROLE=DA $PWD/tor-server /bin/bash
 
 FROM debian:jessie
 
