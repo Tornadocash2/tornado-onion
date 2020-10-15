@@ -54,6 +54,12 @@ This is a full-blown Tor network deployment
 
 shell scripts related only to the `Network/` directory
 
+## GPG/ASC
+
+to utilize `diff` execute;
+
+`$ git config --global diff.gpg.textconv "gpg --no-tty --decrypt"  `
+
 ## License
 
 SPDX-License-Identifier: GPL-2.0
