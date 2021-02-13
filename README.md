@@ -1,13 +1,12 @@
+<!-- SPDX-LICENSE-IDENTIFIER: GPL-2.0-Only -->
+
+<img src="https://gateway.pinata.cloud/ipfs/QmV9xRwBdX1Uo3a67TsaB27Qwty5mjVAzF6bbzDxFykQ8k/tornado_cash_banner.jpeg" align="center">   
+
+
 # Tornado Onion service
 
-<img src="https://pbs.twimg.com/profile_banners/1154795176507969543/1576151439/1500x500" width="900" align="center">   
-<br>    
-<br>    
-
-
-[![Build Status](https://travis-ci.com/sambacha/tornado-onion.svg?branch=master)](https://travis-ci.com/sambacha/tornado-onion)
-
 ## Overview
+
 > `tornado.cash` **tor onion** service for rpc - Zero Trust Transaction & History Logging
 
 This repo can be used to run `tornado.cash` as an onion service. It will auto update the UI when the new version is released.
@@ -62,4 +61,4 @@ to utilize `diff` execute;
 
 ## License
 
-SPDX-License-Identifier: GPL-2.0
+SPDX-License-Identifier: GPL-2.0-Only

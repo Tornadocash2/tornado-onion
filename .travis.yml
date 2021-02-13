@@ -1,7 +1,0 @@
-# travis-ci
-os: linux
-dist: xenial
-
-language: shell
-script:
-  - bash -c 'shopt -s globstar nullglob; shellcheck **/*.{sh,ksh,bash}'
