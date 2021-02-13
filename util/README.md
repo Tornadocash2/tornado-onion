@@ -1,4 +1,4 @@
-## Utils
+## Tor Relay Utils
 
 This folder contains various scripts to let you perform 
 functions on your tor instance. Many of these are from the
@@ -9,4 +9,8 @@ Other examples:
 
 Use tor-prompt to interact with a docker process:
 
-```tor-prompt -i 172.16.0.3:9051``
+```bash
+tor-prompt -i 172.16.0.3:9051
+```
+
+
