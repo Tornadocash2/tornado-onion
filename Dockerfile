@@ -1,6 +1,6 @@
 ## SPDX-License-Identifier: GPL-2.0
 # @note see bottom of dockerfile for information
-FROM golang:buster AS go-build
+FROM golang:1.16.7-buster AS go-build
 
 # Build /go/bin/obfs4proxy & /go/bin/meek-server
 RUN go get -v git.torproject.org/pluggable-transports/obfs4.git/obfs4proxy \
@@ -26,7 +26,7 @@ ENV TERM=xterm \
 RUN mkdir -p  ${TOR_DIR}
 
 # Using apt-get update alone in a RUN statement causes caching issues and subsequent apt-get install
-# 
+
 RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y -qq \
         apt-transport-https \
         ca-certificates \
@@ -59,16 +59,13 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
  && usermod -l tord debian-tor \
  && groupmod -n tord debian-tor
 
-FROM debian:buster-slim
-
-COPY --from=go-build /usr/local/bin/ /usr/local/bin/
-
 RUN adduser --disabled-password --gecos "" --home /opt/tornado4 tornado4 && \
     chown -R tornado4:tornado4 /opt/tornado4 /usr/local/bin/
 
 USER tornado4
 # Copy obfs4proxy & meek-server
 
+COPY --chown=tornado4:tornado4 --from=go-build /usr/local/bin/ /usr/local/bin/
 
 # Copy the base tor configuration file
 COPY ./config/torrc* /etc/tor/
