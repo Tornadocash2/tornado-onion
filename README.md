@@ -53,6 +53,15 @@ This is a full-blown Tor network deployment
 
 shell scripts related only to the `Network/` directory
 
+## Hash Password
+
+```sh
+docker run --rm \
+            --name tor \
+            ${CONTAINER_NAME} \
+            --hash-password passwordtogenerate
+```
+
 ## GPG/ASC
 
 to utilize `diff` execute;
