@@ -9,10 +9,6 @@ RUN go get -v git.torproject.org/pluggable-transports/obfs4.git/obfs4proxy \
 
 FROM debian:buster-slim
 
-RUN adduser --disabled-password --gecos "" --home /opt/tornado4 tornado4 && \
-    chown tornado4:tornado4 /opt/tornado4
-
-USER tornado4
 WORKDIR /opt/tornado4
 
 ARG GPGKEY=A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89
@@ -23,11 +19,11 @@ ARG found=""
 ENV TERM=xterm \
     TOR_ORPORT=7000 \
     TOR_DIRPORT=9030 \
-    TOR_DIR=/tor \
+    TOR_DIR=/opt/tornado4 \
     TOR_USER=tord \
     TOR_NICKNAME=TORNADO4
 
-RUN mkdir ${TOR_DIR}
+RUN mkdir -p  ${TOR_DIR}
 
 # Using apt-get update alone in a RUN statement causes caching issues and subsequent apt-get install
 # 
@@ -63,8 +59,16 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
  && usermod -l tord debian-tor \
  && groupmod -n tord debian-tor
 
-# Copy obfs4proxy & meek-server
+FROM debian:buster-slim
+
 COPY --from=go-build /usr/local/bin/ /usr/local/bin/
+
+RUN adduser --disabled-password --gecos "" --home /opt/tornado4 tornado4 && \
+    chown -R tornado4:tornado4 /opt/tornado4 /usr/local/bin/
+
+USER tornado4
+# Copy obfs4proxy & meek-server
+
 
 # Copy the base tor configuration file
 COPY ./config/torrc* /etc/tor/
